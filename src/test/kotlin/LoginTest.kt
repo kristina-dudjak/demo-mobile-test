@@ -1,18 +1,22 @@
 
-import io.appium.java_client.AppiumBy
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import pages.LoginPage
 
 class LoginTest : TestBase() {
+    private val loginPage = LoginPage(driver)
 
     @BeforeEach
     fun `Navigate to login`() {
-        driver.findElement(AppiumBy.accessibilityId("open menu")).click()
-        driver.findElement(AppiumBy.accessibilityId("menu item log in")).click()
+        loginPage.openMenuButton()
+        loginPage.clickMenuLoginButton()
     }
 
     @Test
     fun `correct login gives success`() {
-        driver.findElement(AppiumBy.accessibilityId("Username input field")).sendKeys("aaa")
+        loginPage.enterUsername("bob@example.com")
+        loginPage.enterPassword("10203040")
+        loginPage.submitLogin()
+        assert(loginPage.loginErrorMsg == null) { "Error message is visible" }
     }
 }
