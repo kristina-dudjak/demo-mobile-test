@@ -1,28 +1,21 @@
-
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.options.UiAutomator2Options
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import java.net.URL
 
-
 abstract class TestBase {
+    protected lateinit var driver: AndroidDriver
+    private val options = UiAutomator2Options()
+        .setApp("${System.getProperty("user.dir")}/apps/Android-MyDemoAppRN.1.3.0.build-244.apk")
 
-    companion object {
-        lateinit var driver: AndroidDriver
+    @BeforeEach
+    fun setUp() {
+        driver = AndroidDriver(URL("http://127.0.0.1:4723"), options)
+    }
 
-        @JvmStatic
-        @BeforeAll
-        fun setUp() {
-            val options = UiAutomator2Options()
-                .setApp("${System.getProperty("user.dir")}/apps/Android-MyDemoAppRN.1.3.0.build-244.apk")
-            driver = AndroidDriver(URL("http://127.0.0.1:4723"), options)
-        }
-
-        @JvmStatic
-        @AfterAll
-        fun tearDown() {
-            driver.quit()
-        }
+    @AfterEach
+    fun tearDown() {
+        driver.quit()
     }
 }

@@ -1,35 +1,30 @@
 
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import pages.LoginPage
 
 class LoginTest : TestBase() {
-    private val loginPage = LoginPage(driver)
+    private lateinit var loginPage: LoginPage
 
     @BeforeEach
     fun `Navigate to login`() {
+        loginPage = LoginPage(driver)
         loginPage.openMenuButton()
         loginPage.clickMenuLoginButton()
-    }
-
-    @AfterEach
-    fun Logout() {
-       loginPage.logoutLoggedUser()
     }
 
     @Test
     fun `Successful login via clicking username`() {
         loginPage.clickValidUsernameButton()
         loginPage.submitLogin()
-        assert(loginPage.genericErrorMsg.isEmpty()) { "Error message is visible" }
+        assert(loginPage.genericErrorMsg.isEmpty()) { "Failed login" }
     }
 
     @Test
     fun `Clicking locked out user displays error message`() {
         loginPage.clickLockedOutUsernameButton()
         loginPage.submitLogin()
-        assert(loginPage.genericErrorMsg[0].getAttribute("text") == "Sorry, this user has been locked out.") { "Error message not displayed"}
+        assert(loginPage.genericErrorMsg[0].getAttribute("text") == "Sorry, this user has been locked out.") { "Error message is not visible"}
     }
 
     @Test
@@ -37,12 +32,11 @@ class LoginTest : TestBase() {
         loginPage.enterUsername("bob@example.com")
         loginPage.enterPassword("10203040")
         loginPage.submitLogin()
-        assert(loginPage.genericErrorMsg.isEmpty()) { "Error message is visible" }
+        assert(loginPage.genericErrorMsg.isEmpty()) { "Failed login" }
     }
 
     @Test
     fun `Display error for empty username field`() {
-        loginPage.clearUsername()
         loginPage.submitLogin()
         assert(loginPage.errorUsernameMsg[0].getAttribute("text") == "Username is required") { "Error message is not visible" }
     }
@@ -50,7 +44,6 @@ class LoginTest : TestBase() {
     @Test
     fun `Display error for empty password field`() {
         loginPage.enterUsername("a")
-        loginPage.clearPassword()
         loginPage.submitLogin()
         assert(loginPage.errorPasswordMsg[0].getAttribute("text") == "Password is required") { "Error message is not visible" }
     }

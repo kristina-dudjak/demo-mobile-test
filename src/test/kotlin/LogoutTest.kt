@@ -1,13 +1,20 @@
 
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import pages.LogoutPage
 
 class LogoutTest : TestBase(){
-    private val logoutPage = LogoutPage(driver)
+    private lateinit var logoutPage : LogoutPage
+
+    @BeforeEach
+    fun `Set LogoutPage`() {
+        logoutPage = LogoutPage(driver)
+    }
 
     @Test
     fun `Log out`() {
-        logoutPage.navigateToLogout()
         logoutPage.logOut()
+        assert(logoutPage.successMsg.getAttribute("text") == "You are successfully logged out.")
+        logoutPage.confirmBtn.click()
     }
 }
