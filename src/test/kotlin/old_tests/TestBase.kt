@@ -1,3 +1,6 @@
+/*
+package old_tests
+
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.android.options.UiAutomator2Options
 import org.junit.jupiter.api.AfterEach
@@ -19,3 +22,4 @@ abstract class TestBase {
         driver.quit()
     }
 }
+*/

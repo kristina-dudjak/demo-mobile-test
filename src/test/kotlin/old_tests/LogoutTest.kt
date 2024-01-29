@@ -1,4 +1,5 @@
-
+/*
+package old_tests
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import pages.LogoutPage
@@ -8,7 +9,7 @@ class LogoutTest : TestBase(){
 
     @BeforeEach
     fun `Set LogoutPage`() {
-        logoutPage = LogoutPage(driver)
+        logoutPage = LogoutPage()
     }
 
     @Test
@@ -18,3 +19,4 @@ class LogoutTest : TestBase(){
         logoutPage.confirmBtn.click()
     }
 }
+*/

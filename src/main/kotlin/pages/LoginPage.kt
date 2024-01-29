@@ -1,9 +1,11 @@
 package pages
+import DriverManager
 import io.appium.java_client.AppiumBy
-import io.appium.java_client.android.AndroidDriver
 import org.openqa.selenium.By
 
-class LoginPage(private val driver: AndroidDriver) {
+class LoginPage() {
+    private val driver = DriverManager.getDriver()
+
     val menuBtn by lazy { driver.findElement(AppiumBy.accessibilityId("open menu")) }
     val menuLoginBtn by lazy { driver.findElement(AppiumBy.accessibilityId("menu item log in")) }
     val usernameField by lazy { driver.findElement(AppiumBy.accessibilityId("Username input field")) }

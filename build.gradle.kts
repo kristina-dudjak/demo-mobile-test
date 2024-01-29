@@ -16,6 +16,9 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.1")
     implementation("io.appium:java-client:9.0.0")
     implementation("org.seleniumhq.selenium:selenium-java:4.16.1")
+    implementation("io.cucumber:cucumber-java:7.15.0")
+    implementation("io.cucumber:cucumber-junit:7.15.0")
+
 }
 
 tasks.test {

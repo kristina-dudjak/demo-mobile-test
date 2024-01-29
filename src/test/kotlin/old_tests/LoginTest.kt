@@ -1,4 +1,5 @@
-
+/*
+package old_tests
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import pages.LoginPage
@@ -8,7 +9,7 @@ class LoginTest : TestBase() {
 
     @BeforeEach
     fun `Navigate to login`() {
-        loginPage = LoginPage(driver)
+        loginPage = LoginPage()
         loginPage.openMenuButton()
         loginPage.clickMenuLoginButton()
     }
@@ -55,6 +56,5 @@ class LoginTest : TestBase() {
         loginPage.submitLogin()
         assert(loginPage.genericErrorMsg[0].getAttribute("text") == "Provided credentials do not match any user in this service.") { "Error message is not visible" }
     }
-
-
 }
+*/
