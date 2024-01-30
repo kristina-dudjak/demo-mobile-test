@@ -1,6 +1,6 @@
 Feature: Login
 
-  Scenario: Successful login via clicking username
+  Scenario: Login via clicking username
     Given I am on a login page
     When I click on a valid username button
     And I click on a submit button
@@ -13,7 +13,7 @@ Feature: Login
     Then I should see locked out user error message
 
 
-  Scenario Outline: Successful login via entering user data
+  Scenario Outline: Login via entering user data
     Given I am on a login page
     When I enter the username "<username>"
     And I enter the password "<password>"

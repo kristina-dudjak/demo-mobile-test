@@ -2,6 +2,7 @@ package pages
 
 import DriverManager
 import io.appium.java_client.AppiumBy
+import org.openqa.selenium.By
 
 class LogoutPage() {
     private val driver = DriverManager.getDriver()
@@ -9,13 +10,27 @@ class LogoutPage() {
     val menuBtn by lazy { driver.findElement(AppiumBy.accessibilityId("open menu")) }
     val menuLogoutBtn by lazy { driver.findElement(AppiumBy.accessibilityId("menu item log out")) }
     val logoutBtn by lazy { driver.findElement(AppiumBy.id("android:id/button1"))}
-    val confirmBtn by lazy { driver.findElement(AppiumBy.id("android:id/button1"))}
-    val successMsg by lazy { driver.findElement(AppiumBy.id("android:id/alertTitle"))}
+    val okBtn by lazy { driver.findElement(AppiumBy.id("android:id/button1"))}
+    val header by lazy { driver.findElement(AppiumBy.accessibilityId("container header")).findElements(By.className("android.widget.TextView"))}
+    val cancelBtn by lazy { driver.findElement(AppiumBy.id("android:id/button2"))}
 
-    fun logOut() {
+    fun openMenuButton() {
         menuBtn.click()
+    }
+
+    fun clickMenuLogoutButton() {
         menuLogoutBtn.click()
+    }
+
+    fun clickLogoutButton() {
         logoutBtn.click()
     }
 
+    fun clickOkButton() {
+        okBtn.click()
+    }
+
+    fun clickCancelButton() {
+        cancelBtn.click()
+    }
 }

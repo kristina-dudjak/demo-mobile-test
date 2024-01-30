@@ -52,12 +52,12 @@ class LoginStepDef() {
 
     @Then("I should see an empty username error message")
     fun iSeeEmptyUsernameErrorMsg() {
-        assert(loginPage.errorUsernameMsg[0].getAttribute("text") == "Username is required") { "Error message is not visible" }
+        assert(loginPage.errorUsername[0].getAttribute("text") == "Username is required") { "Error message is not visible" }
     }
 
     @Then("I should see an empty password error message")
     fun iSeeEmptyPasswordErrorMsg() {
-        assert(loginPage.errorPasswordMsg[0].getAttribute("text") == "Password is required") { "Error message is not visible" }
+        assert(loginPage.errorPassword[0].getAttribute("text") == "Password is required") { "Error message is not visible" }
     }
 
     @Then("I should see a nonexistent user error message")

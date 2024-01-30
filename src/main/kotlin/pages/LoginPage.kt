@@ -10,8 +10,8 @@ class LoginPage() {
     val menuLoginBtn by lazy { driver.findElement(AppiumBy.accessibilityId("menu item log in")) }
     val usernameField by lazy { driver.findElement(AppiumBy.accessibilityId("Username input field")) }
     val passwordField by lazy { driver.findElement(AppiumBy.accessibilityId("Password input field"))}
-    val errorUsernameMsg by lazy { driver.findElement(AppiumBy.accessibilityId("Username-error-message")).findElements(By.className("android.widget.TextView")) }
-    val errorPasswordMsg by lazy { driver.findElement(AppiumBy.accessibilityId("Password-error-message")).findElements(By.className("android.widget.TextView")) }
+    val errorUsername by lazy { driver.findElement(AppiumBy.accessibilityId("Username-error-message")).findElements(By.className("android.widget.TextView")) }
+    val errorPassword by lazy { driver.findElement(AppiumBy.accessibilityId("Password-error-message")).findElements(By.className("android.widget.TextView")) }
     val submitBtn by lazy { driver.findElement(AppiumBy.accessibilityId("Login button"))}
     val validUsernameBtn by lazy {driver.findElement(AppiumBy.accessibilityId("bob@example.com-autofill"))}
     val lockedOutUsernameBtn by lazy {driver.findElement(AppiumBy.accessibilityId("alice@example.com (locked out)-autofill"))}
@@ -43,5 +43,12 @@ class LoginPage() {
 
     fun clickLockedOutUsernameButton() {
         lockedOutUsernameBtn.click()
+    }
+
+    fun login() {
+        openMenuButton()
+        clickMenuLoginButton()
+        clickValidUsernameButton()
+        submitLogin()
     }
 }
