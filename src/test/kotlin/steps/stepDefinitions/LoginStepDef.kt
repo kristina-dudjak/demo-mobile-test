@@ -12,16 +12,16 @@ class LoginStepDef() {
     @Given("I am on a login page")
     fun iAmOnLoginPage() {
         loginPage.openMenuButton()
-        loginPage.clickMenuLoginButton()
+        loginPage.tapMenuLoginButton()
     }
 
-    @When("I click on a valid username button")
-    fun iClickValidUsernameBtn() {
-        loginPage.clickValidUsernameButton()
+    @When("I tap on a valid username button")
+    fun iTapValidUsernameBtn() {
+        loginPage.tapValidUsernameButton()
     }
 
-    @When("I click on a submit button")
-    fun iClickSubmitBtn() {
+    @When("I tap on a submit button")
+    fun iTapSubmitBtn() {
         loginPage.submitLogin()
     }
 
@@ -30,9 +30,9 @@ class LoginStepDef() {
         assert(loginPage.genericErrorMsg.isEmpty()) { "Failed login" }
     }
 
-    @When("I click on a locked out username button")
-    fun iClickLockedOutUsernameBtn() {
-        loginPage.clickLockedOutUsernameButton()
+    @When("I tap on a locked out username button")
+    fun iTapLockedOutUsernameBtn() {
+        loginPage.tapLockedOutUsernameButton()
     }
 
     @Then("I should see locked out user error message")

@@ -18,19 +18,19 @@ class LogoutPage() {
         menuBtn.click()
     }
 
-    fun clickMenuLogoutButton() {
+    fun tapMenuLogoutButton() {
         menuLogoutBtn.click()
     }
 
-    fun clickLogoutButton() {
+    fun tapLogoutButton() {
         logoutBtn.click()
     }
 
-    fun clickOkButton() {
+    fun tapOkButton() {
         okBtn.click()
     }
 
-    fun clickCancelButton() {
+    fun tapCancelButton() {
         cancelBtn.click()
     }
 }

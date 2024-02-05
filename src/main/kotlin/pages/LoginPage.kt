@@ -21,7 +21,7 @@ class LoginPage() {
         menuBtn.click()
     }
 
-    fun clickMenuLoginButton() {
+    fun tapMenuLoginButton() {
         menuLoginBtn.click()
     }
 
@@ -37,18 +37,18 @@ class LoginPage() {
         submitBtn.click()
     }
 
-    fun clickValidUsernameButton() {
+    fun tapValidUsernameButton() {
         validUsernameBtn.click()
     }
 
-    fun clickLockedOutUsernameButton() {
+    fun tapLockedOutUsernameButton() {
         lockedOutUsernameBtn.click()
     }
 
     fun login() {
         openMenuButton()
-        clickMenuLoginButton()
-        clickValidUsernameButton()
+        tapMenuLoginButton()
+        tapValidUsernameButton()
         submitLogin()
     }
 }
